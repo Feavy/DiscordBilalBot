@@ -1,0 +1,19 @@
+{
+  "name": "electron-discord-bot",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Feavy",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.1.9"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "electron-dl": "^3.0.0",
+    "node-fetch": "^2.6.0"
+  }
+}
