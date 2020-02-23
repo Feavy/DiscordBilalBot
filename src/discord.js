@@ -51,10 +51,6 @@ async function isAuthorized(authorization) {
 }
 
 function getAuthorization(mainWindow) {
-    /*protocol.interceptHttpProtocol("http", (request, result) => {
-        console.log(request, result);
-    });*/
-
     var childWindow = new BrowserWindow({
         parent: mainWindow,
         center: true,
@@ -71,11 +67,13 @@ function getAuthorization(mainWindow) {
             const nonAuthorized = [];
             try {
                 if (details.requestHeaders.Authorization && details.requestHeaders.Authorization != "undefined") {
-                    if (!nonAuthorized.includes(details.requestHeaders.Authorization) && isAuthorized(details.requestHeaders.Authorization)) {
-                        resolve(details.requestHeaders.Authorization);
-                        childWindow.close();
-                    } else {
-                        nonAuthorized.push(details.requestHeaders.Authorization);
+                    if (!nonAuthorized.includes(details.requestHeaders.Authorization)) {
+                        if (isAuthorized(details.requestHeaders.Authorization)) {
+                            resolve(details.requestHeaders.Authorization);
+                            childWindow.close();
+                        } else {
+                            nonAuthorized.push(details.requestHeaders.Authorization);
+                        }
                     }
                 }
             } catch (error) {}

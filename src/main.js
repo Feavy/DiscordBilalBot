@@ -53,11 +53,8 @@ async function launchBot() {
     if (!authorized) {
         console.log("Not authorized with config.json");
         autorization = await getAuthorization(mainWindow);
-        console.log(authorization);
         fs.writeFileSync("config.json", JSON.stringify({ authorization: autorization }, null, 4));
     }
-
-    console.log(process.argv);
 
     let images2;
 
