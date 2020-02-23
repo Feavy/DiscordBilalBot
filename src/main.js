@@ -75,7 +75,6 @@ async function launchBot() {
         }
 
         console.log(img);
-        console.log(authorization, img);
         const rep = await setNewProfilePicture(authorization, img);
         if (Array.isArray(rep.avatar))
             console.log(rep.avatar[0]);
