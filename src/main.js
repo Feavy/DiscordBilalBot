@@ -52,11 +52,9 @@ async function launchBot() {
 
     if (!authorized) {
         console.log("Not authorized with config.json");
-        autorization = await getAuthorization(mainWindow);
-        fs.writeFileSync("config.json", JSON.stringify({ authorization: autorization }, null, 4));
+        authorization = await getAuthorization(mainWindow);
+        fs.writeFileSync("config.json", JSON.stringify({ authorization: authorization }, null, 4));
     }
-
-    let images2;
 
     if (fs.existsSync("images.json") && (process.argv.length < 3 || process.argv[2] !== "images")) {
         images = JSON.parse(fs.readFileSync("images.json"));
@@ -64,7 +62,7 @@ async function launchBot() {
         images = await getImages(mainWindow);
         fs.writeFileSync("images.json", JSON.stringify(images, null, 4));
     }
-    images2 = images.slice();
+    let images2 = images.slice();
 
     while (true) {
         const index = Math.floor(Math.random() * images.length);
@@ -77,6 +75,7 @@ async function launchBot() {
         }
 
         console.log(img);
+        console.log(authorization, img);
         const rep = await setNewProfilePicture(authorization, img);
         if (Array.isArray(rep.avatar))
             console.log(rep.avatar[0]);
