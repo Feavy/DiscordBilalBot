@@ -23,5 +23,5 @@ npm start images
 
 ```
 npm install electron-packager
-npm build
+npm run-script build
 ```
