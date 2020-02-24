@@ -1,6 +1,6 @@
 # DiscordBilalBot
 
-Un bot Discord qui vous propose de choisir vos photos préférées de Bilal Hassani pour ensuite modifier votre photo de profil Discord automatiquement toutes les 10 minutes en choisissant une des photos au hasard.
+Un bot qui vous propose de choisir vos photos préférées de Bilal Hassani pour ensuite modifier votre photo de profil Discord automatiquement toutes les 10 minutes en choisissant une des photos au hasard.
 
 ## Installation
 
