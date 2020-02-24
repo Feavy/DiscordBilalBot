@@ -18,3 +18,10 @@ npm start
 ```
 npm start images
 ```
+
+## Build
+
+```
+npm install electron-packager
+npm build
+```
