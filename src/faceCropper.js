@@ -41,6 +41,10 @@ async function crop(data, filename) {
         json = await response.json();
     } while (json.error_code && json.error_code == 1);
 
+    if(!json.faces) {
+        throw "Failed to crop picture "+filename+".png";
+    }
+
     let face = json.faces[0];
     console.log("face_uuid", face.face_uuid);
 

@@ -75,7 +75,14 @@ async function launchBot() {
         }
 
         console.log(img);
-        const rep = await setNewProfilePicture(authorization, img);
+        let rep;
+        try {
+            rep = await setNewProfilePicture(authorization, img);
+        }catch(e) {
+            console.error("An error occured: "+e);
+            console.error("Retrying...");
+            continue;
+        }
         if (Array.isArray(rep.avatar))
             console.log(rep.avatar[0]);
         else
